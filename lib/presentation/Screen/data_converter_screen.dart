@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../controller/converter_controller.dart';
-import 'standard_converter_widget.dart';
+import '../controller/converter_controller.dart';
+import 'standard_converter_screen.dart';
 
 class DataConverterWidget extends StatelessWidget {
   final ConverterController controller;

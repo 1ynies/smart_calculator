@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../controller/converter_controller.dart';
+import '../controller/converter_controller.dart';
 
 class DiscountCalculatorWidget extends StatelessWidget {
   final ConverterController controller;

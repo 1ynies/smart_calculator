@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controller/converter_controller.dart';
 import '../../domain/entities/converter.dart';
-import '../widgets/converters/volume_converter_widget.dart';
-import '../widgets/converters/time_converter_widget.dart';
-import '../widgets/converters/data_converter_widget.dart';
-import '../widgets/converters/temperature_converter_widget.dart';
-import '../widgets/converters/discount_calculator_widget.dart';
-import '../widgets/converters/age_calculator_widget.dart';
+import 'volume_converter_screen.dart';
+import 'time_converter_screen.dart';
+import 'data_converter_screen.dart';
+import 'temperature_converter_screen.dart';
+import 'discount_calculator_screen.dart';
+import 'age_calculator_screen.dart';
 
 class ConverterScreen extends StatelessWidget {
   final ConverterController controller = Get.put(ConverterController());
