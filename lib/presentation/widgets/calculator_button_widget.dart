@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smart_calculator/core/theme.dart';
 
 class CalculatorButtonWidget extends StatelessWidget {
   final Widget content;
@@ -17,13 +16,11 @@ class CalculatorButtonWidget extends StatelessWidget {
     this.width = 60.0,
     this.height = 60.0,
     this.borderRadius = 13.0,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final defaultColor = colorScheme.primaryContainer;
     return Padding(
       padding: const EdgeInsets.all(6.0),
       child: ClipRRect(
@@ -33,7 +30,6 @@ class CalculatorButtonWidget extends StatelessWidget {
           child: InkWell(
             onTap: onPressed,
             child: Container(
-              
               width: width,
               height: height,
               child: Center(
@@ -49,7 +45,6 @@ class CalculatorButtonWidget extends StatelessWidget {
 
 class EqualsButton extends StatelessWidget {
   final VoidCallback onPressed;
-  
 
   final double width;
   final double height;
@@ -58,7 +53,7 @@ class EqualsButton extends StatelessWidget {
 
   const EqualsButton({
     this.backgroundColor = const Color(0xFFdfcdfd),
-    
+
     required this.onPressed,
     this.width = 60.0,
     this.height = 60.0,
@@ -68,7 +63,7 @@ class EqualsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.all(6.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
@@ -77,11 +72,13 @@ class EqualsButton extends StatelessWidget {
           child: InkWell(
             onTap: onPressed,
             child: Container(
-              
               width: width,
               height: height,
               child: Center(
-                child: SvgPicture.asset('assets/svg/equals.svg',width: 30,), // The content widget is placed here
+                child: SvgPicture.asset(
+                  'assets/svg/equals.svg',
+                  width: 30,
+                ), // The content widget is placed here
               ),
             ),
           ),

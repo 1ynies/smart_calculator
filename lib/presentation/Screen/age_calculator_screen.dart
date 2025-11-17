@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:smart_calculator/presentation/Screen/converter_screen.dart';
 import '../controller/converter_controller.dart';
 
 class AgeCalculatorScreen extends StatelessWidget {
-  const AgeCalculatorScreen({Key? key}) : super(key: key);
+  const AgeCalculatorScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +29,7 @@ class AgeCalculatorScreen extends StatelessWidget {
 class AgeCalculatorWidget extends StatelessWidget {
   final ConverterController controller;
 
-  const AgeCalculatorWidget({Key? key, required this.controller})
-    : super(key: key);
+  const AgeCalculatorWidget({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smart_calculator/core/theme.dart';
 import 'package:smart_calculator/domain/entities/converter.dart';
 import 'package:smart_calculator/presentation/Screen/age_calculator_screen.dart';
 import 'package:smart_calculator/presentation/Screen/data_converter_screen.dart';
@@ -20,13 +19,13 @@ class ClickableSvgTextWidget extends StatefulWidget {
   final Color tappedColor; // Background color after tap
 
   const ClickableSvgTextWidget({
-    Key? key,
+    super.key,
     required this.type,
     required this.svgPath,
     required this.label,
     this.initialColor = Colors.white,
     this.tappedColor = const Color(0xFFdfcdfd),
-  }) : super(key: key);
+  });
 
   @override
   _ClickableSvgTextWidgetState createState() => _ClickableSvgTextWidgetState();
@@ -45,11 +44,9 @@ class _ClickableSvgTextWidgetState extends State<ClickableSvgTextWidget> {
 
   void _setToTappedColor() {
     setState(() {
-      
       _currentColor = widget.tappedColor;
     });
   }
-
 
   void _resetToInitialColor() {
     setState(() {
@@ -65,7 +62,7 @@ class _ClickableSvgTextWidgetState extends State<ClickableSvgTextWidget> {
         await Future.delayed(
           Duration(milliseconds: 6),
         ); // Pause to see the color change
-       _navigateToConverter(widget.type);
+        _navigateToConverter(widget.type);
 
         _resetToInitialColor();
       },

@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import 'package:smart_calculator/presentation/Screen/converter_screen.dart';
 import 'package:smart_calculator/presentation/Screen/standard_converter_screen.dart';
 import '../controller/converter_controller.dart';
-import '../../domain/entities/converter.dart';
+
 
 class TimeConverterScreen extends StatelessWidget {
   final ConverterController controller;
 
-  const TimeConverterScreen({Key? key, required this.controller})
-    : super(key: key);
+  const TimeConverterScreen({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
