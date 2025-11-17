@@ -39,18 +39,46 @@ This project follows **Clean Architecture** principles with clear separation of 
 
 ```
 lib/
-├── core/                 # App-wide configurations (themes, etc.)
+├── core/
+│   └── theme.dart                    # App-wide theme configurations
 ├── data/
-│   ├── models/           # Data models
-│   └── repositories/     # Repository implementations
+│   ├── models/
+│   │   └── calculation_model.dart    # Data model for calculations
+│   └── repositories/
+│       ├── calculator_repository_impl.dart  # Calculator repository implementation
+│       └── converter_repository_impl.dart   # Converter repository implementation
 ├── domain/
-│   ├── entities/         # Domain entities
-│   ├── repositories/     # Repository interfaces
-│   └── usecases/         # Business logic use cases
+│   ├── entities/
+│   │   ├── calculation.dart          # Calculation entity
+│   │   └── converter.dart            # Converter entity
+│   ├── repository/
+│   │   ├── calculator_repository.dart # Calculator repository interface
+│   │   └── converter_repository.dart  # Converter repository interface
+│   └── usecases/
+│       ├── calculate.dart            # Calculate use case
+│       └── convert_unit.dart         # Convert unit use case
 └── presentation/
-    ├── controller/       # State management controllers
-    ├── Screen/           # UI screens
-    └── widgets/          # Reusable UI components
+    ├── controller/
+    │   ├── calculator_controller.dart # Calculator state management
+    │   └── converter_controller.dart  # Converter state management
+    ├── Screen/
+    │   ├── age_calculator_screen.dart      # Age calculator screen
+    │   ├── calculator_screen.dart          # Main calculator screen
+    │   ├── converter_screen.dart           # Converter selection screen
+    │   ├── data_converter_screen.dart      # Data converter screen
+    │   ├── discount_calculator_screen.dart # Discount calculator screen
+    │   ├── homepage_screen.dart            # Home page screen
+    │   ├── onboarding_screen.dart          # Onboarding screen
+    │   ├── splash_screen.dart              # Splash screen
+    │   ├── standard_converter_screen.dart  # Standard converter screen
+    │   ├── temperature_converter_screen.dart # Temperature converter screen
+    │   ├── time_converter_screen.dart      # Time converter screen
+    │   └── volume_converter_screen.dart    # Volume converter screen
+    └── widgets/
+        ├── calculator_button_widget.dart   # Calculator button widget
+        ├── Clickable_converter_widget.dart # Clickable converter widget
+        ├── input_card_widget.dart          # Input card widget
+        └── output_card_widet.dart          # Output card widget
 ```
 
 ### Architecture Layers
@@ -111,59 +139,113 @@ lib/
 3. **Enter input value** and select units
 4. **View instant conversion** results
 
-### Input Validation
 
-The app includes smart validation:
-
-- ✅ Required fields must be filled
-- ✅ Valid number inputs
-- ✅ Proper unit selections
-- ❌ Error messages guide you if validation fails
 
 ## 🎯 Key Features Explained
 
 ### Calculator Operations
 
-Supports basic arithmetic, percentages, and decimal calculations with real-time expression display.
+The calculator supports a wide range of mathematical operations:
+- **Basic Arithmetic**: Addition, subtraction, multiplication, division
+- **Advanced Operations**: Percentage calculations, decimal handling
+- **Real-time Display**: Live expression preview as you type
+- **Error Handling**: Smart validation to prevent invalid operations
+- **History**: Track previous calculations (if implemented)
 
 ### Unit Conversions
 
-Comprehensive converters for:
-- **Volume**: Liters, gallons, milliliters, etc.
-- **Data**: Bytes, KB, MB, GB, TB
-- **Age**: Years, months, days calculations
-- **Discount**: Percentage discounts and final prices
-- **Time**: Hours, minutes, seconds conversions
-- **Temperature**: Celsius, Fahrenheit, Kelvin
+Comprehensive unit conversion system with multiple categories:
+- **Volume**: Conversions between liters, gallons, milliliters, cubic meters, etc.
+- **Data**: Digital storage units (Bytes, KB, MB, GB, TB, PB)
+- **Age**: Age calculations in years, months, days, hours
+- **Discount**: Calculate discounts, final prices, and savings percentages
+- **Time**: Time conversions (hours, minutes, seconds, days, weeks)
+- **Temperature**: Temperature scales (Celsius, Fahrenheit, Kelvin)
+- **Standard Units**: Additional standard unit conversions
 
 ### State Management
 
-Implements GetX pattern for efficient state management across calculator and converter functionalities.
+Implements GetX for efficient state management:
+- **Reactive Programming**: Real-time UI updates
+- **Controller Pattern**: Separate business logic from UI
+- **Dependency Injection**: Clean separation of concerns
+- **Performance Optimized**: Minimal rebuilds and efficient data flow
 
 ### Theme System
 
-Comprehensive theme with:
-- Custom color scheme
-- Poppins font family
-- Consistent styling across all components
+Comprehensive theming with:
+- **Custom Color Scheme**: Modern, accessible color palette
+- **Poppins Font Family**: Clean, readable typography
+- **Material Design 3**: Latest design guidelines
+- **Dark/Light Mode**: Adaptive theming (if implemented)
+- **Consistent Styling**: Unified look across all components
+
+### Input Validation
+
+Smart validation features:
+- **Real-time Feedback**: Immediate error detection
+- **Format Checking**: Ensures correct input formats
+- **Boundary Validation**: Prevents invalid ranges
+- **User Guidance**: Helpful error messages and hints
+
+### Responsive Design
+
+Adaptive UI that works on:
+- **Mobile Devices**: Optimized for phones and tablets
+- **Different Screen Sizes**: Flexible layouts
+- **Orientation Changes**: Portrait and landscape support
+- **Accessibility**: Screen reader support and high contrast
+
+
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+We welcome contributions to the Smart Calculator project! Here's how you can help:
 
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+### How to Contribute
 
-## 🙏 Acknowledgments
+1. **Fork the repository** on GitHub
+2. **Clone your fork** locally:
+   ```bash
+   git clone https://github.com/yourusername/smart_calculator.git
+   cd smart_calculator
+   ```
+3. **Create a feature branch**:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+4. **Make your changes** and ensure they follow the project structure
+5. **Test your changes** thoroughly
+6. **Commit your changes**:
+   ```bash
+   git commit -m "Add: Brief description of your changes"
+   ```
+7. **Push to your fork**:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+8. **Create a Pull Request** on GitHub
 
-- Flutter team for the amazing framework
-- Material Design for design guidelines
-- Clean Architecture principles
-- GetX contributors for state management
-- SVG icon contributors
+### Guidelines
+
+- Follow the existing code style and architecture
+- Write clear, concise commit messages
+- Add tests for new features
+- Update documentation as needed
+- Ensure all tests pass before submitting
+
+### Development Setup
+
+- Use Flutter SDK ^3.9.2
+- Run `flutter pub get` to install dependencies
+- Use `flutter analyze` to check code quality
+- Run tests with `flutter test`
+
+### Reporting Issues
+
+- Use GitHub Issues to report bugs or request features
+- Provide detailed steps to reproduce bugs
+- Include device/emulator information and Flutter version
 
 ## 📞 Support
 
