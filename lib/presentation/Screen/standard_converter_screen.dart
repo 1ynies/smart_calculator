@@ -21,7 +21,7 @@ class StandardConverterWidget extends StatelessWidget {
           child: IconButton(
             onPressed: () => controller.swapUnits(),
             icon: const Icon(Icons.swap_vert, size: 32),
-            color: const Color(0xFF9c27b0),
+            
           ),
         ),
         const SizedBox(height: 16),

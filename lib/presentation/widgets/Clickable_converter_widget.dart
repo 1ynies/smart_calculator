@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smart_calculator/core/theme.dart';
 import 'package:smart_calculator/domain/entities/converter.dart';
 import 'package:smart_calculator/presentation/Screen/age_calculator_screen.dart';
 import 'package:smart_calculator/presentation/Screen/data_converter_screen.dart';
@@ -8,12 +9,8 @@ import 'package:smart_calculator/presentation/Screen/temperature_converter_scree
 import 'package:smart_calculator/presentation/Screen/time_converter_screen.dart';
 import 'package:smart_calculator/presentation/Screen/volume_converter_screen.dart';
 import 'package:smart_calculator/presentation/controller/converter_controller.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:get/get.dart';
-import 'package:smart_calculator/presentation/widgets/Clickable_converter_widget.dart';
-import '../controller/converter_controller.dart';
-import '../../domain/entities/converter.dart';
 
 class ClickableSvgTextWidget extends StatefulWidget {
   final ConverterType type;
@@ -28,7 +25,7 @@ class ClickableSvgTextWidget extends StatefulWidget {
     required this.svgPath,
     required this.label,
     this.initialColor = Colors.white,
-    this.tappedColor = Colors.lightBlue,
+    this.tappedColor = const Color(0xFFdfcdfd),
   }) : super(key: key);
 
   @override
@@ -46,24 +43,37 @@ class _ClickableSvgTextWidgetState extends State<ClickableSvgTextWidget> {
     _currentColor = widget.initialColor; // Start with initial color
   }
 
-  void _toggleColor() {
+  void _setToTappedColor() {
     setState(() {
-      _currentColor = _currentColor == widget.initialColor
-          ? widget.tappedColor
-          : widget.initialColor;
+      
+      _currentColor = widget.tappedColor;
+    });
+  }
+
+
+  void _resetToInitialColor() {
+    setState(() {
+      _currentColor = widget.initialColor;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        _navigateToConverter(widget.type);
+      onTap: () async {
+        _setToTappedColor();
+        await Future.delayed(
+          Duration(milliseconds: 6),
+        ); // Pause to see the color change
+       _navigateToConverter(widget.type);
+
+        _resetToInitialColor();
       },
       child: Container(
+        alignment: Alignment.center,
         padding: EdgeInsets.only(right: 10.0),
         decoration: BoxDecoration(
-          color:  _currentColor,
+          color: _currentColor,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
@@ -73,9 +83,10 @@ class _ClickableSvgTextWidgetState extends State<ClickableSvgTextWidget> {
             ),
           ],
         ),
-         // Background color that toggles
+        // Background color that toggles
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SvgPicture.asset(widget.svgPath, width: 60, height: 60),
 

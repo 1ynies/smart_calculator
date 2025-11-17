@@ -33,6 +33,7 @@ class CalculatorButtonWidget extends StatelessWidget {
           child: InkWell(
             onTap: onPressed,
             child: Container(
+              
               width: width,
               height: height,
               child: Center(
@@ -76,6 +77,7 @@ class EqualsButton extends StatelessWidget {
           child: InkWell(
             onTap: onPressed,
             child: Container(
+              
               width: width,
               height: height,
               child: Center(

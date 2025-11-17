@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:smart_calculator/presentation/Screen/converter_screen.dart';
 import '../controller/converter_controller.dart';
 
 class AgeCalculatorScreen extends StatelessWidget {
@@ -15,7 +17,6 @@ class AgeCalculatorScreen extends StatelessWidget {
           'Age Calculator',
           style: TextStyle(fontFamily: 'Poppins'),
         ),
-        backgroundColor: const Color(0xFFe1bee7),
       ),
       body: SafeArea(
         child: Padding(

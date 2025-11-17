@@ -15,7 +15,7 @@ class DiscountCalculatorScreen extends StatelessWidget {
           'Discount Calculator',
           style: TextStyle(fontFamily: 'Poppins'),
         ),
-        backgroundColor: const Color(0xFFe1bee7),
+        
       ),
       body: SafeArea(
         child: Padding(
