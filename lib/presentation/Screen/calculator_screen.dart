@@ -164,11 +164,12 @@ class CalculatorScreen extends StatelessWidget {
                 
               ),
               CalculatorButtonWidget(
-                content: SvgPicture.asset(
-                  'assets/svg/arrow_pointing_out.svg',
-                  width: 30,
-                  height: 30,
-                ),
+                content: Text(' '),
+                // SvgPicture.asset(
+                //   'assets/svg/arrow_pointing_out.svg',
+                //   width: 30,
+                //   height: 30,
+                // ),
                 onPressed: () => controller.onToggleSign(),
                 
               ),

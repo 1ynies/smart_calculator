@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../controller/converter_controller.dart';
 
 class DiscountCalculatorScreen extends StatelessWidget {
-  const DiscountCalculatorScreen({Key? key}) : super(key: key);
+  const DiscountCalculatorScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,6 @@ class DiscountCalculatorScreen extends StatelessWidget {
           'Discount Calculator',
           style: TextStyle(fontFamily: 'Poppins'),
         ),
-        
       ),
       body: SafeArea(
         child: Padding(
@@ -30,8 +29,7 @@ class DiscountCalculatorScreen extends StatelessWidget {
 class DiscountCalculatorWidget extends StatelessWidget {
   final ConverterController controller;
 
-  const DiscountCalculatorWidget({Key? key, required this.controller})
-    : super(key: key);
+  const DiscountCalculatorWidget({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -57,12 +55,21 @@ class DiscountCalculatorWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 TextField(
+                  maxLines: 1,
                   keyboardType: const TextInputType.numberWithOptions(
                     decimal: true,
                   ),
+                  cursorColor: Colors.black87,
                   style: const TextStyle(fontSize: 24, fontFamily: 'Poppins'),
                   decoration: const InputDecoration(
-                    hintText: 'Enter price',
+                    floatingLabelStyle: const TextStyle(
+                      color: Colors.black87,
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    labelText: "Enter price",
+                    
+
                     prefixText: '\$ ',
                     border: OutlineInputBorder(),
                     contentPadding: EdgeInsets.symmetric(
@@ -97,13 +104,21 @@ class DiscountCalculatorWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 TextField(
+                  cursorColor: Colors.black87,
+                  maxLines: 1,
                   keyboardType: const TextInputType.numberWithOptions(
                     decimal: true,
                   ),
                   style: const TextStyle(fontSize: 24, fontFamily: 'Poppins'),
                   decoration: const InputDecoration(
-                    hintText: 'Enter discount %',
-                    suffixText: '%',
+                    floatingLabelStyle: const TextStyle(
+                      color: Colors.black87,
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+
+                    labelText: 'Enter discount ',
+                    prefixText: '\%',
                     border: OutlineInputBorder(),
                     contentPadding: EdgeInsets.symmetric(
                       horizontal: 16,
@@ -119,7 +134,7 @@ class DiscountCalculatorWidget extends StatelessWidget {
         const SizedBox(height: 24),
         Card(
           elevation: 2,
-          color: const Color(0xFFe1bee7),
+          color: const Color(0xFFede9fe),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -143,7 +158,7 @@ class DiscountCalculatorWidget extends StatelessWidget {
                       fontSize: 36,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Poppins',
-                      color: Color(0xFF9c27b0),
+                      color: Colors.black87,
                     ),
                   ),
                 ),

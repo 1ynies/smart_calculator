@@ -118,10 +118,13 @@ class ConverterController extends GetxController {
 
   void calculateAge(DateTime birthDate) {
     try {
+      print('calculateAge called with $birthDate');
       hasError.value = false;
       selectedBirthDate.value = birthDate;
       ageResult.value = _convertUnit.calculateAge(birthDate);
+      print('ageResult updated: $ageResult');
     } catch (e) {
+      print('Error in calculateAge: $e');
       hasError.value = true;
       ageResult.clear();
     }

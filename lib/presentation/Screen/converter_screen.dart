@@ -19,7 +19,7 @@ class ConverterScreen extends StatelessWidget {
               ClickableSvgTextWidget(
                 type: ConverterType.volume,
                 svgPath: 'assets/svg/funnel.svg',
-                label: 'Voulme',
+                label: 'Volume',
               ),
               ClickableSvgTextWidget(
                 type: ConverterType.data,

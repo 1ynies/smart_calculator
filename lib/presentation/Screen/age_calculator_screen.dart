@@ -56,14 +56,14 @@ class AgeCalculatorWidget extends StatelessWidget {
                 const SizedBox(height: 12),
                 Obx(
                   () => ListTile(
-                    tileColor: Colors.grey.shade100,
+                    // tileColor: Colors.grey.shade100,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                       side: BorderSide(color: Colors.grey.shade300),
                     ),
                     leading: const Icon(
                       Icons.calendar_today,
-                      color: Color(0xFF9c27b0),
+                      color:   Color(0xFFede9fe),
                     ),
                     title: Text(
                       controller.selectedBirthDate.value == null
@@ -71,19 +71,7 @@ class AgeCalculatorWidget extends StatelessWidget {
                           : '${controller.selectedBirthDate.value!.day}/${controller.selectedBirthDate.value!.month}/${controller.selectedBirthDate.value!.year}',
                       style: const TextStyle(fontFamily: 'Poppins'),
                     ),
-                    onTap: () async {
-                      final DateTime? picked = await showDatePicker(
-                        context: Get.context!,
-                        initialDate: DateTime.now().subtract(
-                          const Duration(days: 365 * 20),
-                        ),
-                        firstDate: DateTime(1900),
-                        lastDate: DateTime.now(),
-                      );
-                      if (picked != null) {
-                        controller.calculateAge(picked);
-                      }
-                    },
+                    onTap: () => _showCustomDatePicker(context),
                   ),
                 ),
               ],
@@ -97,15 +85,15 @@ class AgeCalculatorWidget extends StatelessWidget {
           }
           return Card(
             elevation: 2,
-            color: const Color(0xFFf3e5f5),
+            color: const Color(0xFFede9fe),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
             child: Padding(
               padding: const EdgeInsets.all(24.0),
               child: Column(
-                children: [
-                  const Text(
+                  children: [
+                    const Text(
                     'Your Age',
                     style: TextStyle(
                       fontSize: 20,
@@ -140,12 +128,56 @@ class AgeCalculatorWidget extends StatelessWidget {
                       color: Colors.grey,
                     ),
                   ),
-                ],
-              ),
+                  ],
+                ),
+                
+              
             ),
           );
         }),
       ],
+    );
+  }
+
+  void _showCustomDatePicker(BuildContext context) {
+    DateTime selectedDate =
+        controller.selectedBirthDate.value ??
+        DateTime.now().subtract(const Duration(days: 365 * 20));
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: const Color(0xFFede9fe),
+          title: const Text('Select Date',style: TextStyle(color: Colors.black87),),
+          content: SizedBox(
+            height: 300,
+            width: 300,
+            child: CalendarDatePicker(
+              initialDate: selectedDate,
+              firstDate: DateTime(1900),
+              lastDate: DateTime.now(),
+              onDateChanged: (DateTime date) {
+                selectedDate = date;
+              },
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Cancel',style: TextStyle(color: Colors.black87),),
+            ),
+            TextButton(
+              onPressed: () {
+                print('Picked date: $selectedDate');
+                controller.calculateAge(selectedDate);
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK',style: TextStyle(color: Colors.black87),),
+            ),
+          ],
+        );
+      },
     );
   }
 
@@ -156,9 +188,9 @@ class AgeCalculatorWidget extends StatelessWidget {
           value,
           style: const TextStyle(
             fontSize: 32,
-            fontWeight: FontWeight.bold,
+            // fontWeight: FontWeight.bold,
             fontFamily: 'Poppins',
-            color: Color(0xFF9c27b0),
+            color:  Colors.black,
           ),
         ),
         Text(
