@@ -26,13 +26,34 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          mainAxisSize: MainAxisSize.min,
+
+          children: [
+            Expanded(
+              child: Center(
+                child: Image.asset(
+                  'assets/images/appicon_backgroundless.png',
+
+                  width: 150,
+
+                  height: 150,
+                ),
+              ),
+            ),
             Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Image.asset("assets/images/appicon_backgroundless.png"),
+              padding: const EdgeInsets.only(bottom: 10),
+
+              child: Text(
+                'Smart calculator',
+
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 20,
+                  color: Colors.black,
+                ),
+              ),
             ),
           ],
         ),

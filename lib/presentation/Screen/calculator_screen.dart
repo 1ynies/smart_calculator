@@ -40,8 +40,9 @@ class CalculatorScreen extends StatelessWidget {
                   () => Text(
                     controller.display.value,
                     style: TextStyle(
+                      
                       fontSize: 48,
-                      fontWeight: FontWeight.bold,
+                      // fontWeight: FontWeight.bold,
                       color: controller.hasError.value
                           ? Colors.red
                           : Colors.black,
@@ -49,7 +50,7 @@ class CalculatorScreen extends StatelessWidget {
                     ),
                     textAlign: TextAlign.right,
                     maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                    // overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ],
@@ -58,13 +59,13 @@ class CalculatorScreen extends StatelessWidget {
         ),
         // Button grid
         Container(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10.0),
           child: GridView.count(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             crossAxisCount: 4,
-            crossAxisSpacing: 8.0,
-            mainAxisSpacing: 8.0,
+            crossAxisSpacing: 5.0,
+            mainAxisSpacing: 1.0,
             children: <Widget>[
               CalculatorButtonWidget(
                 content: const Text(
@@ -72,16 +73,16 @@ class CalculatorScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () => controller.onClearPressed(),
-                backgroundColor: const Color(0xFFf3e5f5),
+                
               ),
               CalculatorButtonWidget(
                 content: SvgPicture.asset(
                   "assets/svg/backspace.svg",
-                  width: 24,
-                  height: 24,
+                  width: 30,
+                  height: 30,
                 ),
                 onPressed: () => controller.onBackspacePressed(),
-                backgroundColor: const Color(0xFFf3e5f5),
+                
               ),
               CalculatorButtonWidget(
                 content: const Text(
@@ -89,16 +90,16 @@ class CalculatorScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () => controller.onPercentPressed(),
-                backgroundColor: const Color(0xFFf3e5f5),
+                
               ),
               CalculatorButtonWidget(
                 content: SvgPicture.asset(
                   'assets/svg/slash.svg',
-                  width: 24,
-                  height: 24,
+                  width: 30,
+                  height: 30,
                 ),
                 onPressed: () => controller.onOperatorPressed('÷'),
-                backgroundColor: const Color(0xFFe1bee7),
+                
               ),
               CalculatorButtonWidget(
                 content: const Text("7", style: TextStyle(fontSize: 24)),
@@ -118,7 +119,7 @@ class CalculatorScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () => controller.onOperatorPressed('×'),
-                backgroundColor: const Color(0xFFe1bee7),
+                
               ),
               CalculatorButtonWidget(
                 content: const Text("4", style: TextStyle(fontSize: 24)),
@@ -135,11 +136,11 @@ class CalculatorScreen extends StatelessWidget {
               CalculatorButtonWidget(
                 content: SvgPicture.asset(
                   'assets/svg/minus.svg',
-                  width: 24,
-                  height: 24,
+                  width: 30,
+                  height: 30,
                 ),
                 onPressed: () => controller.onOperatorPressed('-'),
-                backgroundColor: const Color(0xFFe1bee7),
+                
               ),
               CalculatorButtonWidget(
                 content: const Text("1", style: TextStyle(fontSize: 24)),
@@ -156,20 +157,20 @@ class CalculatorScreen extends StatelessWidget {
               CalculatorButtonWidget(
                 content: SvgPicture.asset(
                   'assets/svg/plus.svg',
-                  width: 24,
-                  height: 24,
+                  width: 30,
+                  height: 30,
                 ),
                 onPressed: () => controller.onOperatorPressed('+'),
-                backgroundColor: const Color(0xFFe1bee7),
+                
               ),
               CalculatorButtonWidget(
                 content: SvgPicture.asset(
                   'assets/svg/arrow_pointing_out.svg',
-                  width: 24,
-                  height: 24,
+                  width: 30,
+                  height: 30,
                 ),
                 onPressed: () => controller.onToggleSign(),
-                backgroundColor: const Color(0xFFf3e5f5),
+                
               ),
               CalculatorButtonWidget(
                 content: const Text("0", style: TextStyle(fontSize: 24)),
@@ -182,13 +183,10 @@ class CalculatorScreen extends StatelessWidget {
                 ),
                 onPressed: () => controller.onNumberPressed('.'),
               ),
-              CalculatorButtonWidget(
-                content: const Text(
-                  "=",
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-                ),
+              EqualsButton(
+                
                 onPressed: () => controller.onEqualsPressed(),
-                backgroundColor: const Color(0xFF9c27b0),
+                
               ),
             ],
           ),

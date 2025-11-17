@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smart_calculator/presentation/Screen/calculator_screen.dart';
 import 'package:smart_calculator/presentation/Screen/converter_screen.dart';
 
@@ -39,7 +40,8 @@ class _HomepageScreenState extends State<HomepageScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.history, color: Colors.black),
+          
+          icon: SvgPicture.asset('assets/svg/history.svg'),
           onPressed: () {
             // Add history functionality here
           },
@@ -79,7 +81,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 16,
-              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+              fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
               color: Colors.black,
             ),
           ),
@@ -88,7 +90,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
             height: 3,
             width: 60,
             decoration: BoxDecoration(
-              color: isSelected ? const Color(0xFF9c27b0) : Colors.transparent,
+              color: isSelected ? const Color(0xFFdfcdfd) : Colors.transparent,
               borderRadius: BorderRadius.circular(2),
             ),
           ),

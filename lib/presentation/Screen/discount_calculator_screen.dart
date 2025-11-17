@@ -2,6 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controller/converter_controller.dart';
 
+class DiscountCalculatorScreen extends StatelessWidget {
+  const DiscountCalculatorScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final ConverterController controller = Get.find<ConverterController>();
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Discount Calculator',
+          style: TextStyle(fontFamily: 'Poppins'),
+        ),
+        backgroundColor: const Color(0xFFe1bee7),
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: DiscountCalculatorWidget(controller: controller),
+        ),
+      ),
+    );
+  }
+}
+
 class DiscountCalculatorWidget extends StatelessWidget {
   final ConverterController controller;
 

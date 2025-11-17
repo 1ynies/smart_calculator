@@ -14,8 +14,8 @@ class CalculatorButtonWidget extends StatelessWidget {
     this.backgroundColor = const Color(0xFFede9fe),
     required this.content,
     required this.onPressed,
-    this.width = 79.0,
-    this.height = 79.0,
+    this.width = 60.0,
+    this.height = 60.0,
     this.borderRadius = 13.0,
     Key? key,
   }) : super(key: key);
@@ -56,12 +56,12 @@ class EqualsButton extends StatelessWidget {
   final Color backgroundColor;
 
   const EqualsButton({
-    this.backgroundColor = const Color(0xFFede9fe),
+    this.backgroundColor = const Color(0xFFdfcdfd),
     
     required this.onPressed,
-    this.width = 80.0,
-    this.height = 80.0,
-    this.borderRadius = 40.0,
+    this.width = 60.0,
+    this.height = 60.0,
+    this.borderRadius = 13.0,
     Key? key,
   }) : super(key: key);
 
@@ -70,7 +70,7 @@ class EqualsButton extends StatelessWidget {
     return  Padding(
       padding: const EdgeInsets.all(6.0),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(40.0),
+        borderRadius: BorderRadius.circular(borderRadius),
         child: Material(
           color: backgroundColor,
           child: InkWell(
@@ -79,7 +79,7 @@ class EqualsButton extends StatelessWidget {
               width: width,
               height: height,
               child: Center(
-                child: SvgPicture.asset('assets/svg/equals.svg'), // The content widget is placed here
+                child: SvgPicture.asset('assets/svg/equals.svg',width: 30,), // The content widget is placed here
               ),
             ),
           ),
