@@ -118,7 +118,7 @@ class DiscountCalculatorWidget extends StatelessWidget {
                     ),
 
                     labelText: 'Enter discount ',
-                    prefixText: '\%',
+                    prefixText: '\% ',
                     border: OutlineInputBorder(),
                     contentPadding: EdgeInsets.symmetric(
                       horizontal: 16,

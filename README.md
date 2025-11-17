@@ -9,11 +9,18 @@ A comprehensive Flutter application that combines a powerful calculator with mul
 <!-- Add your screenshots here -->
 
 <div align="center">
+   <img src="lib/ScreenShots/splash_screen.jpg" width="200" />
+  
+  <img src="lib/ScreenShots/calculator_screen.jpg" width="200" />
+  <img src="lib/ScreenShots/converter_screen.jpg" width="200" />
+  <img src="lib/ScreenShots/volume_converter_screen.jpg" width="200" />
+  <img src="lib/ScreenShots/time_converter_screen.jpg" width="200" />
+  <img src="lib/ScreenShots/age_calculator_screen.jpg" width="200" />
+  <img src="lib/ScreenShots/temperature_converter_screen.jpg" width="200" />
 
-  <img src="screenshots/screenshot-1.jpg" width="200" alt="Home page"/>
-  <img src="screenshots/screenshot-2.jpg" width="200" alt="Calculator interface"/>
-  <img src="screenshots/screenshot-3.jpg" width="200" alt="Converter selection"/>
-  <img src="screenshots/screenshot-4.jpg" width="200" alt="Conversion result"/>
+  <img src="lib/ScreenShots/discount_calculator_screen.jpg" width="200" />
+  <img src="lib/ScreenShots/data_converter_screen.jpg" width="200" />
+  
 </div>
 
 ## ✨ Features
