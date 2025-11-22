@@ -40,7 +40,6 @@ class CalculatorScreen extends StatelessWidget {
                   () => Text(
                     controller.display.value,
                     style: TextStyle(
-                      
                       fontSize: 48,
                       // fontWeight: FontWeight.bold,
                       color: controller.hasError.value
@@ -73,7 +72,6 @@ class CalculatorScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () => controller.onClearPressed(),
-                
               ),
               CalculatorButtonWidget(
                 content: SvgPicture.asset(
@@ -82,7 +80,6 @@ class CalculatorScreen extends StatelessWidget {
                   height: 30,
                 ),
                 onPressed: () => controller.onBackspacePressed(),
-                
               ),
               CalculatorButtonWidget(
                 content: const Text(
@@ -90,7 +87,6 @@ class CalculatorScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () => controller.onPercentPressed(),
-                
               ),
               CalculatorButtonWidget(
                 content: SvgPicture.asset(
@@ -99,7 +95,6 @@ class CalculatorScreen extends StatelessWidget {
                   height: 30,
                 ),
                 onPressed: () => controller.onOperatorPressed('÷'),
-                
               ),
               CalculatorButtonWidget(
                 content: const Text("7", style: TextStyle(fontSize: 24)),
@@ -119,7 +114,6 @@ class CalculatorScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () => controller.onOperatorPressed('×'),
-                
               ),
               CalculatorButtonWidget(
                 content: const Text("4", style: TextStyle(fontSize: 24)),
@@ -140,7 +134,6 @@ class CalculatorScreen extends StatelessWidget {
                   height: 30,
                 ),
                 onPressed: () => controller.onOperatorPressed('-'),
-                
               ),
               CalculatorButtonWidget(
                 content: const Text("1", style: TextStyle(fontSize: 24)),
@@ -161,7 +154,6 @@ class CalculatorScreen extends StatelessWidget {
                   height: 30,
                 ),
                 onPressed: () => controller.onOperatorPressed('+'),
-                
               ),
               CalculatorButtonWidget(
                 content: Text(' '),
@@ -171,7 +163,6 @@ class CalculatorScreen extends StatelessWidget {
                 //   height: 30,
                 // ),
                 onPressed: () => controller.onToggleSign(),
-                
               ),
               CalculatorButtonWidget(
                 content: const Text("0", style: TextStyle(fontSize: 24)),
@@ -184,11 +175,7 @@ class CalculatorScreen extends StatelessWidget {
                 ),
                 onPressed: () => controller.onNumberPressed('.'),
               ),
-              EqualsButton(
-                
-                onPressed: () => controller.onEqualsPressed(),
-                
-              ),
+              EqualsButton(onPressed: () => controller.onEqualsPressed()),
             ],
           ),
         ),

@@ -12,6 +12,7 @@ A comprehensive Flutter application that combines a powerful calculator with mul
    <img src="lib/ScreenShots/splash_screen.jpg" width="200" />
   
   <img src="lib/ScreenShots/calculator_screen.jpg" width="200" />
+  <img src="lib/ScreenShots/1763770424850.jpg" width="200" />
   <img src="lib/ScreenShots/converter_screen.jpg" width="200" />
   <img src="lib/ScreenShots/volume_converter_screen.jpg" width="200" />
   <img src="lib/ScreenShots/time_converter_screen.jpg" width="200" />

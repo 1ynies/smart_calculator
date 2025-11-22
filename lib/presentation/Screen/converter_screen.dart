@@ -3,7 +3,7 @@ import 'package:smart_calculator/presentation/widgets/Clickable_converter_widget
 import '../../domain/entities/converter.dart';
 
 class ConverterScreen extends StatelessWidget {
-  ConverterScreen({Key? key}) : super(key: key);
+  const ConverterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

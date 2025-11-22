@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:smart_calculator/presentation/Screen/homepage_screen.dart';
 
 class OnboardingScreen extends StatelessWidget {
+  const OnboardingScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,37 +13,62 @@ class OnboardingScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 60),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 100, horizontal: 10),
-              child: Image.asset(
-                'lib/presentation/assets/images/robot_holding_calculator_backgroundless.png',
-              ),
+            Image.asset(
+              'assets/images/robot_holding_calculator_backgroundless.png',
             ),
+
             Spacer(),
             Container(
               width: double.infinity,
-              height: 250,
+              height: 220,
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
-                color: Color(0xFFFFC727), // Yellow-orange background
+                color: Color(0xFFaf90fc), // Yellow-orange background
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40),
                   topRight: Radius.circular(40),
                 ),
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBox(height: 10),
                   Text(
-                    'Welcome',
+                    'Calculate and convert smartly \n with smart calculator',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                      fontFamily: "Agrandir",
+                      fontSize: 20,
+                      // fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                      fontFamily: "Poppins",
                     ),
                   ),
-                  SizedBox(height: 10),
+
+                  Spacer(),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => HomepageScreen(),
+                        ),
+                      );
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'Get started',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Poppins',
+                            color: Colors.black87,
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        SvgPicture.asset('assets/svg/arrow-left.svg'),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
